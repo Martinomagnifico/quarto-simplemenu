@@ -1,0 +1,129 @@
+---
+title: "Simplemenu"
+subtitle: "For Reveal.js and Quarto, using `flat` option"
+format:
+  revealjs:
+    section-divs: false
+    title-slide-attributes:
+        data-state: "hide-menubar"
+    center: true
+    theme: dark
+    transition: slide
+    background-transition: fade
+    controls: true
+    controls-layout: bottom-right
+    chalkboard: false
+    menu: false
+    css: "css/style.css"
+    simplemenu:
+        flat: true
+        barhtml:
+            header: "<div class='menubar'><ul class='menu'></ul><div>"
+        scale: 0.67
+revealjs-plugins:
+  - simplemenu
+---
+
+## Why? {data-name="Why?"}
+
+##
+Sometimes viewers don’t understand the whole concept of vertical navigation for nested slides.
+
+A solution would be to limit your presentation to horizontal slides only, but you might still want to use ‘chapters’ with several slides.
+
+##
+Simplemenu has a solution for that. Make your presentation in a flat structure (no nested sections) and turn the `flat` option to `true`. Then, if a data-name is set for a slide, any following slides will keep that menu name.
+
+<p class="small">Of course, you can set it to stop inheriting the name as well.</p>
+
+
+## Set it up {data-name="Set it up"}
+
+---
+
+### Edit the YAML
+Set the flat option to `true`:
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      flat: true
+```
+
+---
+
+### HTML Markup
+Build your presentation in a flat way (no nested slides). Then give your sections a `data-name`:
+
+``` markdown
+## Chapter one {data-name="Chapter 1"}
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+## Another slide 
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+## Chapter two {data-name="Chapter 2"}
+<!-- The 'Chapter 2' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+```
+---
+
+###
+To avoid Quarto creating nested sections, set `section-divs: false` and use dividers to separate your slides.
+
+``` yaml
+format:
+  revealjs:
+    section-divs: false
+```
+
+``` markdown
+## Chapter one {data-name="Chapter 1"}
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+---
+
+### Another slide 
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+---
+
+## Chapter two {data-name="Chapter 2"}
+<!-- The 'Chapter 2' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+```
+
+---
+
+###
+Any slides following a slide with a data-name will keep that menu name.
+
+---
+
+## {data-sm="false"}
+To stop inheriting the previous slide menu name, start a new named section, or add `data-sm="false"` to your slide.
+
+``` markdown
+## Chapter one {data-name="Chapter 1"}
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+## Another slide 
+<!-- The 'Chapter 1' menu-item will be active for this slide -->
+Lorem ipsum sit dolor amet
+
+## Last slide {data-sm="false"}
+Lorem ipsum sit dolor amet
+```
+
+## That’s it!
+
+## More demos {data-name="More demos"}
+
+For more demos go to the [Simplemenu plugin](https://github.com/Martinomagnifico/reveal.js-simplemenu) for Reveal.js. 
+Not all of the options in the regular plugin are available in the Quarto plugin.

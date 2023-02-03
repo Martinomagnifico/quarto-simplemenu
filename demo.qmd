@@ -1,0 +1,164 @@
+---
+title: "Simplemenu"
+subtitle: "For Reveal.js and Quarto"
+format:
+  revealjs:
+    title-slide-attributes:
+        data-state: "hide-menubar"
+    center: true
+    theme: dark
+    transition: slide
+    background-transition: fade
+    controls-layout: bottom-right
+    menu: false
+    css: "css/style.css"
+    section-divs: true
+    simplemenu:
+        barhtml:
+            header: "<div class='menubar'><ul class='menu'></ul><div>"
+        scale: 0.67
+revealjs-plugins:
+  - simplemenu
+---
+
+## Table of Contents {data-state="hide-menubar"}
+<ul class="menu"><ul>
+
+# Slide 1 {data-name="Regular slide"}
+A paragraph with some text and a [link](http://hakim.se).
+
+# Vertical slide 1 {data-stack-name="Vertical"}
+
+## Vertical slide 2
+
+# Global options {data-stack-name="Options"}
+
+The options below have user configurable options. In a regular Reveal.js presentation, these can be set through JavaScript, but Quarto makes it configurable through YAML options.
+
+::: columns
+::: {.column style="font-size: 2rem"}
+1. menubarclass
+2. menuclass
+3. activeclass
+4. activeelement
+:::
+
+::: {.column style="font-size: 2rem"}
+5. barhtml
+7. flat
+8. scale
+
+:::
+:::
+
+## Option 1: menubarclass
+
+The menubarclass option sets the classname of menubars.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      menubarclass: "menubar"
+```
+<p class="small">Simplemenu will show the menubar(s) on all pages. If you do not want to show the menubar on certain pages, use data-state="hide-menubar" on that section. This behaviour also works when exporting to PDF using the Reveal.js ?print-pdf option.</p>
+
+
+## Option 2: menuclass
+
+The menuclass option sets the classname of the menu.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      menuclass: "menu"
+```
+Simplemenu looks inside this menu for list items (LI's).
+
+## Option 3: activeclass
+
+The activeclass option is the class an active menuitem gets.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      activeclass: "active"
+```
+
+## Option 4: activeelement
+
+The activeelement option sets the item that gets the active class.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      activeelement: "li"
+```
+You may want to change it to the anchor inside the li, like this: `activeelement: "a"`.
+
+## Option 5: barhtml
+
+You can add the HTML for the header (and/or footer) through this option. This way you no longer need to edit the template.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      barhtml:
+        header: "<div class='menubar'><ul class='menu'></ul></div>"
+        footer: ""
+```
+
+## Option 5: barhtml (Continued)
+
+You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the `barhtml` option, they will then display inside that header or footer.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      barhtml:
+        header: ""
+        footer: "<div class='menubar'><ul class='menu'></ul><div class='slide-number'></div></div>"
+```
+
+## Option 6: flat
+
+Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’, you can use the `flat` option. By default, it is set to `false`, but you can set it to `true`. Then, when a data-name is set for a slide, any following slides will keep that menu name.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      flat: true
+```
+To stop inheriting the previous slide menu name, start a new named section, or add `data-sm="false"` to your slide.
+
+
+## Option 7: scale
+
+When you have a lot of subjects/chapters in your menubar, they might not all fit in a row. You can then tweak the scale in the options. Simplemenu copies the Reveal.js (slide) scaling and adds a `scale` option on top of that.
+
+``` yaml
+format:
+  revealjs:
+    ...
+    simplemenu:
+      scale: 0.67
+```
+It is set to be two-thirds of the main scaling.
+
+# More demos {data-name="More demos"}
+
+For more demos go to the [Simplemenu plugin](https://github.com/Martinomagnifico/reveal.js-simplemenu) for Reveal.js. 
+Not all of the options in the regular plugin are available in the Quarto plugin.

@@ -1,0 +1,54 @@
+---
+title: "Simplemenu"
+subtitle: "For Reveal.js and Quarto, using custom styling"
+format:
+  revealjs:
+    highlight-style: 'github'
+    title-slide-attributes:
+        data-state: "hide-menubar"
+    center: true
+    code-overflow: wrap
+    theme: default
+    slide-number: c/t
+    navigation-mode: grid
+    transition: slide
+    background-transition: fade
+    controls-layout: bottom-right
+    chalkboard: false
+    menu: false
+    css: "css/mycustomstyle.css"
+    section-divs: true
+    simplemenu:
+        barhtml:
+            header: "<div class='menubar'><a class='logo' href='#'><img src='img/logo.svg'></a><ul class='menu'></ul><div class='slide-number'></div><div>"
+        scale: 0.8
+revealjs-plugins:
+  - simplemenu
+---
+
+## Table of Contents {data-state="hide-menubar"}
+<ul class="menu"><ul>
+
+# Slide 1 {data-name="First subject"}
+A paragraph with some text and a [link](http://hakim.se).
+
+
+# Setup {data-stack-name="Setup"}
+
+##
+Change the CSS to your needs and link to it through the regular `css` option.
+Add a header via the `barhtml` option and include your custom header markup. If you add a `slide-number` div as well, it will be included in the menubar.
+
+```yaml
+//...
+format:
+    revealjs:
+        ...
+        css: "css/mycustomstyle.css"
+        ...
+        simplemenu:
+            barhtml:
+                header: "<div class='menubar'><a href='#'><img class='logo' src='img/logo.svg'></a><ul class='menu'></ul><div class='slide-number'></div><div>"
+```
+
+## That’s it!
