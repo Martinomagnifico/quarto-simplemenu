@@ -4,18 +4,13 @@
 
 A quarto extension for [Reveal.js](https://revealjs.com) that creates menubars and menus.
 
-[![Screenshot](https://martinomagnifico.github.io/reveal.js-simplemenu/screenshot.png)](https://martinomagnifico.github.io/reveal.js-simplemenu/demo.html)
+[![Screenshot](https://martinomagnifico.github.io/reveal.js-simplemenu/screenshot.png)](https://martinomagnifico.github.io/quarto-simplemenu/docs/demo.html)
 
 In Powerpoint you can make slides with a nice bottom- or top bar in which ***the active menu item is highlighted***. This menu works in the same way, but automatically. Simplemenu now also supports the Markdown syntax. Combined with the `barhtml` option, you don't have to edit the template in HTML at all.
 
-The following demo’s are linked to the regular version of Simplemenu:
-* [Demo with bar on top](https://martinomagnifico.github.io/reveal.js-simplemenu/demo.html)
-* [Demo with bar on bottom](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-bottom.html)
-* [Demo with Markdown](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-markdown.html)
-* [Demo, custom styling, including a logo](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-custom.html)
-* [Demo, flat chapter navigation](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-flatchapters.html)
-* [Demo, manual setup, select by id](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-manual-id.html)
-* [Demo, manual setup, select by data-name](https://martinomagnifico.github.io/reveal.js-simplemenu/demo-manual-dataname.html)
+* [Demo with bar on top](https://martinomagnifico.github.io/quarto-simplemenu/docs/demo.html)
+* [Demo, custom styling, including a logo](https://martinomagnifico.github.io/quarto-simplemenu/docs/demo-custom.html)
+* [Demo, flat chapter navigation](https://martinomagnifico.github.io/quarto-simplemenu/docs/demo-flat.html)
 
 
 ### What it does
